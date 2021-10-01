@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidHilt</string>
+    <string name="to_inject_String">our injection String</string>
+
 </resources>
