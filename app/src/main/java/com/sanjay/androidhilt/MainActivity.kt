@@ -3,7 +3,10 @@ package com.sanjay.androidhilt
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
+import com.google.gson.Gson
 import com.sanjay.androidhilt.databinding.ActivityMainBinding
+import com.sanjay.androidhilt.module.TestViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Named
@@ -22,6 +25,12 @@ class MainActivity : AppCompatActivity() {
     @Named("String3")
     lateinit var testString3:String
 
+    @Inject
+    lateinit var gson1:Gson
+
+
+    private val mViewModel:TestViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -30,7 +39,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         Log.d("MAINACTIVITY", "onCreate: $testString")
-        Log.d("MAINACTIVITY", "onCreate: $testString3")
+        Log.d("MAINACTIVITY", "onCreate: $testString3") // our injection String - we will inject String
+
+        mViewModel // to access
 
     }
 }

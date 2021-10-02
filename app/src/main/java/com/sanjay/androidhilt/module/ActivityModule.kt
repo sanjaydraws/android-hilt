@@ -15,7 +15,7 @@ import javax.inject.Named
 @InstallIn(ActivityComponent::class)
 object ActivityModule {
 
-//    @Singleton only worked with application component(singletoncomponent)
+//    @Singleton only worked with applicationComponent(singletoncomponent)
 
     @ActivityScoped // it won't create another string over and over again
     @Provides

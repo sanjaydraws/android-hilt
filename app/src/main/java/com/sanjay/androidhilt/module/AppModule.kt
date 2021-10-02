@@ -1,4 +1,4 @@
-package com.sanjay.androidhilt
+package com.sanjay.androidhilt.module
 
 import dagger.Module
 import dagger.Provides

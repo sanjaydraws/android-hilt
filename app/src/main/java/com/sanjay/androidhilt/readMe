@@ -1,0 +1,26 @@
+Enable Hilt in your app by annotating your application class with the @HiltAndroidApp
+ to trigger Hilt’s code generation.
+
+ Hilt Modules
+ =============
+  Hilt module is a class that is annotated with @Module.Like a Dagger module, it informs Hilt how to provide instances of certain types.
+   must annotate Hilt modules with @InstallIn to tell Hilt which Android class each module will be used or installed in.
+
+
+   Inject instances with @Provides
+   ==============================
+    tell Hilt how to provide instances of this type by creating a function inside a Hilt module and annotating that function with @Provides.
+
+
+  inject interface with binds
+  ============================
+  provide Hilt with the binding information by creating an abstract function annotated with @Binds inside a Hilt module.
+
+  @Module
+  @InstallIn(ViewModelComponent::class)
+  interface RepositoriesModule {
+
+      @Binds
+      fun mainRepository(mainRepositoryImpl: MainRepositoryImpl) : MainRepository
+  }
+
