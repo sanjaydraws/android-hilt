@@ -1,11 +1,13 @@
 package com.sanjay.androidhilt
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import com.google.gson.Gson
 import com.sanjay.androidhilt.databinding.ActivityMainBinding
+import com.sanjay.androidhilt.module.StorageModule.set
 import com.sanjay.androidhilt.module.TestViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -31,6 +33,8 @@ class MainActivity : AppCompatActivity() {
 
     private val mViewModel:TestViewModel by viewModels()
 
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -42,6 +46,8 @@ class MainActivity : AppCompatActivity() {
         Log.d("MAINACTIVITY", "onCreate: $testString3") // our injection String - we will inject String
 
         mViewModel // to access
+
+        sharedPreferences.set("name", "Justin Bieber")
 
     }
 }
