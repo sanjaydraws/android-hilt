@@ -7,7 +7,9 @@ import android.util.Log
 import androidx.activity.viewModels
 import com.google.gson.Gson
 import com.sanjay.androidhilt.databinding.ActivityMainBinding
-import com.sanjay.androidhilt.module.StorageModule.set
+import com.sanjay.androidhilt.models.Car
+import com.sanjay.androidhilt.models.Main
+import com.sanjay.androidhilt.models.Wheels
 import com.sanjay.androidhilt.module.TestViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -33,8 +35,18 @@ class MainActivity : AppCompatActivity() {
 
     private val mViewModel:TestViewModel by viewModels()
 
+
+    // field Injection
     @Inject
-    lateinit var sharedPreferences: SharedPreferences
+    lateinit var wheels: Wheels
+
+
+    // example of interface injection
+    @Inject
+    lateinit var  main:Main
+
+    @Inject
+    lateinit var car:Car // injecting car
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -47,7 +59,12 @@ class MainActivity : AppCompatActivity() {
 
         mViewModel // to access
 
-        sharedPreferences.set("name", "Justin Bieber")
+
+        car.getCar()
+        wheels.getWheels()
+        main.getName()
+
+
 
     }
 }

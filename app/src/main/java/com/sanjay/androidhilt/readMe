@@ -1,6 +1,15 @@
 Enable Hilt in your app by annotating your application class with the @HiltAndroidApp
  to trigger Hilt’s code generation.
 
+ @HiltAndroidApp.
+ To add a container that is attached to the app’s lifecycle, we need to annotate the application class with @HiltAndroidApp.
+
+@AndroidEntryPoint :  o make our fragments or activities use Hilt we annotate them with @AndroidEntryPoint. Annotating Android Classes with @AndroidEntryPoint create a dependencies container that follows the Android class lifecycle.
+
+  field injection : we can make Hilt Inject instances of different types with the @Inject annotation on the fields we want to be injected
+
+  @Singleton -> o scope an instance to the application container, we use @Singleton. This annotation will make the application container always provide the same instance
+
  Hilt Modules
  =============
   Hilt module is a class that is annotated with @Module.Like a Dagger module, it informs Hilt how to provide instances of certain types.
@@ -10,9 +19,10 @@ Enable Hilt in your app by annotating your application class with the @HiltAndro
    Inject instances with @Provides
    ==============================
     tell Hilt how to provide instances of this type by creating a function inside a Hilt module and annotating that function with @Provides.
+    for code you don't own
 
 
-  inject interface with binds
+  inject interface with @Binds
   ============================
   provide Hilt with the binding information by creating an abstract function annotated with @Binds inside a Hilt module.
 
