@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import javax.inject.Named
 import javax.inject.Singleton
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Qualifier
 
 
 // in this module we will provide all application level dependencie
